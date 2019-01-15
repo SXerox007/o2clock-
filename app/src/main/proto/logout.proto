@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package logoutpb;
+
+message LogoutRequest{
+    string access_token = 1;
+}
+
+message LogoutResponse{
+    string message = 1;
+    int32 code = 2;
+}
+
+service LogoutService{
+    rpc LogoutUserService (LogoutRequest) returns (LogoutResponse){};
+}

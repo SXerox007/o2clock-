@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package accesstokenpb;
+
+
+message AccessTokenRequest{
+    string access_token = 1;
+}
+
+message AccessTokenResponse{
+    string message = 1;
+    int32 code = 2;
+}
+
+service AccessTokenService{
+    rpc CheckAccessTokenService (AccessTokenRequest) returns (AccessTokenResponse){};
+}

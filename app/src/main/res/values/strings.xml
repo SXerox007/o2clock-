@@ -1,0 +1,158 @@
+<resources>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+
+    <string name="welcome_and_sign_up">Welcome and Sign In</string>
+    <string name="continue_with_facebook">Continue with Facebook</string>
+    <string name="we_never_post_anything_without_your_permission">We never post anything without your permission!</string>
+    <string name="or">Or</string>
+    <string name="sign_in">SignIn using</string>
+    <string name="email_address_mobile_number">Enter email Address/Mobile Number</string>
+    <string name="password">password</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="don_t_have_an_account">Don\'t have any Account?</string>
+    <string name="create">Create</string>
+    <string name="label_sign_in">SignIn</string>
+    <string name="label_dummy_label_not_in_used">Dummy click not in used.</string>
+    <string name="err_email_phone_incorrect">Please enter the email/phone correct.</string>
+    <string name="err_password">Password must contain at least one capital letter, one small and one digit. (e.g Sumit007)</string>
+    <string name="email_phone_required">Email/Phone is required</string>
+    <string name="password_required">Password is required</string>
+    <string name="error_player">Player Error</string>
+    <string name="label_home">Wission</string>
+    <string name="write_comments">Write comments..</string>
+    <string name="search">Search...</string>
+    <string name="err_empty_field_not_allowed">Please enter text first</string>
+    <string name="title_activity_home_contoller">HomeContollerActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+
+    <string name="btn_sign_in"><b>Login</b></string>
+    <string name="btn_sign_up"><b>Register</b></string>
+    <string name="text_continue_with">Continue with</string>
+    <string name="btn_sign_in_with_facebook">Facebook</string>
+    <string name="text_or">or</string>
+
+
+    <!--Radio Button-->
+    <string name="radio_button_create_account"><b>Create an account.</b>New?</string>
+    <string name="radio_button_login"><b>Login.</b>Already a customer</string>
+
+    <string name="error_fb_login_failed">Facebook Login failed!!</string>
+
+    <string name="met_email_or_number">Email/Mobile Number</string>
+    <string name="metPassword">Password</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="text_forgot_password"><b>Forgot Password?</b></string>
+    <string name="text_verifiy_you_to_clock_in">Click Selfie \n to verify your image and \n Start your day clockin...</string>
+    <string name="text_shift_timing">Clockin Successfully \n Your Shift Start with 10:00 to 6:00</string>
+
+
+    <!--Error-->
+    <string name="error_email_field_empty">Please enter email address.</string>
+    <string name="error_confirm_password_field_empty">Please enter confirm password.</string>
+    <string name="error_password_field_empty">Please enter password.</string>
+    <string name="error_password_must_be_greater_than_5_character">Password must have 8 character.</string>
+    <string name="error_phone_number_field_empty">Please enter phone number.</string>
+    <string name="error_invalid_phone_number">Please enter valid phone number.</string>
+    <string name="error_first_name_field_empty">Please enter first name</string>
+    <string name="error_name_field_empty">Please enter name</string>
+    <string name="error_last_name_field_empty">Please enter last name</string>
+    <string name="error_name_two_character_long">Name must contain at least two characters</string>
+    <string name="error_first_name_two_character_long">First name must contain at least two characters</string>
+    <string name="error_last_name_two_character_long">Last name must contain at least two characters</string>
+    <string name="error_first_name_special_number_character">First name cannot contain number &amp; special characters</string>
+    <string name="error_last_name_special_number_character">Last name cannot contain number &amp; special characters</string>
+    <string name="error_password_mismatch">Password Not Match!</string>
+    <string name="error_device_not_supported">This device is not supported.</string>
+    <string name="error_internet_not_connected">Not connected to internet. Please check your internet connection or try again later.</string>
+    <string name="error_title">Error</string>
+    <string name="error_not_a_valid_image_file">File is not a valid image.</string>
+
+
+
+    <string name="text_ok">OK</string>
+    <string name="text_exit">Exit</string>
+    <string name="text_retry">Retry</string>
+    <string name="text_terms_and_condition1">TERMS &amp; CONDITIONS</string>
+    <string name="text_terms_and_condition">By Continuing you are agreeing to our</string>
+    <string name="msg_warning">WARNING!</string>
+    <string name="msg_device_rooted">This device is rooted.We are not responsible for any kind of data loss and hack.Use it at your own risk!!</string>
+
+
+    <string name="btn_continue">Continue</string>
+    <string name="reenter_password">ReEnter Password</string>
+
+
+    <string name="met_create_password">Create a password</string>
+    <string name="met_phone_number">Mobile Number</string>
+    <string name="metEmail">Email</string>
+    <string name="text_number">+91</string>
+    <string name="user_name">User Name</string>
+    <string name="met_first_name">First Name</string>
+    <string name="met_last_name">Last Name</string>
+    <string name="met_user_name">Name</string>
+
+
+    <string name="error_password_contain_Capital_alpha">Password Must Contain a Capital Alphabet</string>
+    <string name="error_password_contain_small_alpha">Password Must Contain a alphabet</string>
+    <string name="error_password_contain_special_char">must contain at least 1 special character</string>
+    <string name="error_password_contain_number">must contain at least 1 numeric character</string>
+    <string name="error_empty_edit_text">This is Empty</string>
+    <string name="error_location_not_selected">Location Not Selected</string>
+    <string name="error_file_not_exist">File does not exist</string>
+
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="on_duty">On Duty</string>
+    <string name="notification">Notification</string>
+    <string name="schedule">Schedule</string>
+    <string name="tutorials">Tutorials</string>
+    <string name="text_support">Support</string>
+    <string name="text_logout">Logout</string>
+    <string name="settings">Settings</string>
+
+
+
+    <!-- TAB TExt -->
+    <string name="tab_home">Home</string>
+    <string name="tab_profile">Profile</string>
+
+
+
+    <!-- Image Chooser -->
+    <string name="text_cancel">Cancel</string>
+    <string name="text_camera">Camera</string>
+    <string name="text_setting">Settings</string>
+    <string name="text_gallery">Gallery</string>
+    <string name="text_multiple">Multiple</string>
+    <string name="text_choose_image">Choose Image</string>
+    <string name="permission_camera_storage_msg">Permissions are required for camera &amp; storage.</string>
+    <string name="permission_camera_storage_denied_msg">Permissions denied. Please grant permission for camera &amp; storage in setting.</string>
+
+
+
+
+
+
+</resources>
