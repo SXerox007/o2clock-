@@ -61,7 +61,7 @@ public class DrawerMenuFragment extends BaseFragment {
         flSchedule = view.findViewById(R.id.fl_schedule);
         flSettings =  view.findViewById(R.id.fl_settings);
         flTutorials =  view.findViewById(R.id.fl_tutorials);
-        flSupport =  view.findViewById(R.id.fl_support);
+        flSupport =  view.findViewById(R.id.fl_chat);
         flLogout =  view.findViewById(R.id.fl_logout);
         tvNotificationCount = view.findViewById(R.id.tv_notification_counter);
         flNotification.setOnClickListener(this);

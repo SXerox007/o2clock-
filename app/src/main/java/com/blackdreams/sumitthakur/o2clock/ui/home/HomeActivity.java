@@ -1,7 +1,6 @@
 package com.blackdreams.sumitthakur.o2clock.ui.home;
 
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.support.design.widget.TabLayout;
 
@@ -24,6 +23,8 @@ import com.blackdreams.sumitthakur.o2clock.base.BaseActivity;
 import com.blackdreams.sumitthakur.o2clock.fragment.home.HomeFragment;
 import com.blackdreams.sumitthakur.o2clock.fragment.home.drawer.DrawerMenuFragment;
 
+
+import com.blackdreams.sumitthakur.o2clock.fragment.home.drawer.chat.chathome.ChatHomeFragment;
 import com.blackdreams.sumitthakur.o2clock.ui.onboarding.tutorial.TutorialActivity;
 import com.blackdreams.sumitthakur.o2clock.util.Util;
 import com.blackdreams.sumitthakur.o2clock.util.dialog.CustomAlertDialog;
@@ -127,7 +128,8 @@ public class HomeActivity extends BaseActivity implements
                 break;
             case R.id.fl_tutorials:
                 break;
-            case R.id.fl_support:
+            case R.id.fl_chat:
+                chat();
                 break;
             case R.id.fl_logout:
                 logout();
@@ -179,5 +181,10 @@ public class HomeActivity extends BaseActivity implements
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(replaceTry, fragment);
         fragmentTransaction.commit();
+    }
+
+
+    private void chat(){
+        replaceFragment(ChatHomeFragment.newInstance(), R.id.fl_home);
     }
 }

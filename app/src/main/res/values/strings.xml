@@ -64,6 +64,7 @@
     <string name="text_forgot_password"><b>Forgot Password?</b></string>
     <string name="text_verifiy_you_to_clock_in">Click Selfie \n to verify your image and \n Start your day clockin...</string>
     <string name="text_shift_timing">Clockin Successfully \n Your Shift Start with 10:00 to 6:00</string>
+    <string name="txt_no_chat">No Previous chats.</string>
 
 
     <!--Error-->
@@ -128,6 +129,7 @@
     <string name="notification">Notification</string>
     <string name="schedule">Schedule</string>
     <string name="tutorials">Tutorials</string>
+    <string name="text_chat">Chat</string>
     <string name="text_support">Support</string>
     <string name="text_logout">Logout</string>
     <string name="settings">Settings</string>
@@ -135,7 +137,7 @@
 
 
     <!-- TAB TExt -->
-    <string name="tab_home">Home</string>
+    <string name="tab_home">o2clock</string>
     <string name="tab_profile">Profile</string>
 
 

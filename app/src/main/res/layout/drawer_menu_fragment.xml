@@ -97,13 +97,13 @@
                     android:layout_height="wrap_content"/>
             </android.support.v7.widget.ContentFrameLayout>
             <android.support.v7.widget.ContentFrameLayout
-                android:id="@+id/fl_support"
+                android:id="@+id/fl_chat"
                 android:theme="@style/nav_text"
                 style="@style/NavMenuItem">
                 <TextView
                     android:layout_gravity="center_vertical"
                     style="@style/nav_text"
-                    android:text="@string/text_support"
+                    android:text="@string/text_chat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </android.support.v7.widget.ContentFrameLayout>

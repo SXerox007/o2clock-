@@ -1,4 +1,4 @@
-package com.blackdreams.sumitthakur.o2clock.fragment.home.drawer.chat;
+package com.blackdreams.sumitthakur.o2clock.fragment.home.drawer.chat.allchats;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,10 +10,11 @@ import com.blackdreams.sumitthakur.o2clock.R;
 import com.blackdreams.sumitthakur.o2clock.base.BaseFragment;
 
 /**
- * Created by sumitthakur on 10/01/19.
+ * Developer: sumitthakur
+ * Date: 16/01/19
  */
 
-public class ChatFragment extends BaseFragment implements View.OnClickListener {
+public class AllChatsFragment extends BaseFragment implements View.OnClickListener {
 
     private View view;
 
@@ -23,14 +24,13 @@ public class ChatFragment extends BaseFragment implements View.OnClickListener {
      * @return Instance of Fragment
      */
     public static Fragment newInstance() {
-        return new ChatFragment();
+        return new AllChatsFragment();
     }
-
 
 
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.chat_fragment, container, false);
+        view = inflater.inflate(R.layout.all_chats_fragment, container, false);
         init(view);
         return view;
     }
@@ -44,12 +44,5 @@ public class ChatFragment extends BaseFragment implements View.OnClickListener {
 
     }
 
-
-    /**
-     * when open scroll to bottom
-     */
-    private void scrollToBottom() {
-        // mMessagesView.scrollToPosition(mAdapter.getItemCount() - 1);
-    }
 
 }
