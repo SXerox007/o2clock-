@@ -149,10 +149,7 @@
     <string name="text_choose_image">Choose Image</string>
     <string name="permission_camera_storage_msg">Permissions are required for camera &amp; storage.</string>
     <string name="permission_camera_storage_denied_msg">Permissions denied. Please grant permission for camera &amp; storage in setting.</string>
-
-
-
-
+    <string name="enter_msg">Type a message...</string>
 
 
 </resources>

@@ -30,7 +30,7 @@ public class ChatFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.home_fragment, container, false);
+        view = inflater.inflate(R.layout.chat_fragment, container, false);
         init(view);
         return view;
     }
