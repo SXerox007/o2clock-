@@ -33,7 +33,7 @@
     <string name="email_phone_required">Email/Phone is required</string>
     <string name="password_required">Password is required</string>
     <string name="error_player">Player Error</string>
-    <string name="label_home">Wission</string>
+    <string name="label_home">Home</string>
     <string name="write_comments">Write comments..</string>
     <string name="search">Search...</string>
     <string name="err_empty_field_not_allowed">Please enter text first</string>

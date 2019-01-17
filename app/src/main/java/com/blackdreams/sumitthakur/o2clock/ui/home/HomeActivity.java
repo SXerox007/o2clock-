@@ -120,6 +120,9 @@ public class HomeActivity extends BaseActivity implements
     public void menuClicked(final int id) {
 
         switch (id) {
+            case R.id.fl_home_:
+                replaceFragment(HomeFragment.newInstance(), R.id.fl_home);
+                break;
             case R.id.fl_notification:
                 break;
             case R.id.fl_schedule:
@@ -129,7 +132,7 @@ public class HomeActivity extends BaseActivity implements
             case R.id.fl_tutorials:
                 break;
             case R.id.fl_chat:
-                chat();
+                replaceFragment(ChatHomeFragment.newInstance(), R.id.fl_home);
                 break;
             case R.id.fl_logout:
                 logout();
@@ -181,10 +184,5 @@ public class HomeActivity extends BaseActivity implements
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(replaceTry, fragment);
         fragmentTransaction.commit();
-    }
-
-
-    private void chat(){
-        replaceFragment(ChatHomeFragment.newInstance(), R.id.fl_home);
     }
 }

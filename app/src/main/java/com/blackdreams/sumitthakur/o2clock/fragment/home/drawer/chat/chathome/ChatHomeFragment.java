@@ -12,6 +12,7 @@ import com.blackdreams.sumitthakur.o2clock.R;
 import com.blackdreams.sumitthakur.o2clock.adapter.ViewPagerAdapter;
 import com.blackdreams.sumitthakur.o2clock.base.BaseFragment;
 import com.blackdreams.sumitthakur.o2clock.fragment.home.drawer.chat.allchats.AllChatsFragment;
+import com.blackdreams.sumitthakur.o2clock.fragment.home.drawer.chat.allusers.AllUsers;
 
 /**
  * Developer: sumitthakur
@@ -60,11 +61,10 @@ public class ChatHomeFragment extends BaseFragment implements View.OnClickListen
     }
 
     private void setupViewPager(ViewPager viewPager) {
-
-
         adapter = new ViewPagerAdapter(getChildFragmentManager());
         adapter.addFragment(new AllChatsFragment(), "Chats");
-        adapter.addFragment(new AllChatsFragment(), "Finder");
+        adapter.addFragment(new AllUsers(), "Users");
+        adapter.addFragment(new AllChatsFragment(),"Groups");
         viewPager.setAdapter(adapter);
         viewPager.setCurrentItem(0);
     }

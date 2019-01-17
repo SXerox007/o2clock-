@@ -23,7 +23,7 @@ public class DrawerMenuFragment extends BaseFragment {
     private DrawerMenuClickListener mListener;
     private SwitchCompat switchDutyOn;
     private TextView tvNotificationCount;
-    private ContentFrameLayout flNotification, flSchedule, flSettings, flTutorials;
+    private ContentFrameLayout flNotification, flSchedule, flSettings, flTutorials,flHome;
     private ContentFrameLayout flSupport, flLogout;
     private ViewGroup lastClicked;
     /**
@@ -63,6 +63,7 @@ public class DrawerMenuFragment extends BaseFragment {
         flTutorials =  view.findViewById(R.id.fl_tutorials);
         flSupport =  view.findViewById(R.id.fl_chat);
         flLogout =  view.findViewById(R.id.fl_logout);
+        flHome = view.findViewById(R.id.fl_home_);
         tvNotificationCount = view.findViewById(R.id.tv_notification_counter);
         flNotification.setOnClickListener(this);
         flSchedule.setOnClickListener(this);
@@ -70,6 +71,7 @@ public class DrawerMenuFragment extends BaseFragment {
         flTutorials.setOnClickListener(this);
         flSupport.setOnClickListener(this);
         flLogout.setOnClickListener(this);
+        flHome.setOnClickListener(this);
     }
 
 
