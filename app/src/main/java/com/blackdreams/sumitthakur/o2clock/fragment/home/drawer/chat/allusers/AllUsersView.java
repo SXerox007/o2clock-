@@ -27,7 +27,7 @@ public interface AllUsersView extends BaseView {
     /**
      * login user data get
      */
-    void onLoginUserDataSuccess();
+    void onLoginUserDataSuccess(final Chat.User senderId);
 
 
     /**

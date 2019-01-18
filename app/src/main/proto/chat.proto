@@ -164,6 +164,12 @@ service ChatRoom {
     rpc GetChatHistory(ReadHistoryRequest) returns (ReadHistoryResponse){
 
     };
+
+    // Get signin user details
+    rpc GetUserDetails(CommonRequest) returns (User){
+
+    };
+
     // Leave the group
     rpc LeaveGroup(LeaveGroupRequest) returns (CommonResponse){
 

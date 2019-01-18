@@ -37,6 +37,7 @@ public class AllUsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private Context mContext;
     private AllUsersPresenter allUsersPresenter;
     private Dialog mDialog;
+    private int position;
     private List<Chat.User> data = new ArrayList<>();
 
     @NonNull
@@ -95,8 +96,8 @@ public class AllUsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     @Override
-    public void onLoginUserDataSuccess() {
-
+    public void onLoginUserDataSuccess(final Chat.User sender) {
+        allUsersPresenter.startChat(sender,data.get(position));
     }
 
     @Override
@@ -124,7 +125,14 @@ public class AllUsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             super(itemView);
             ivUser = itemView.findViewById(R.id.ivUser);
             tvUserName = itemView.findViewById(R.id.tvUserName);
-            llChatItem = itemView.findViewById(R.id.llChatItem);
+             itemView.findViewById(R.id.llChatItem).setOnClickListener(new View.OnClickListener() {
+                 @Override
+                 public void onClick(View view) {
+                     allUsersPresenter.getLoginUserData();
+                     position = getAdapterPosition();
+                 }
+             });
+
         }
     }
 

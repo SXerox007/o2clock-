@@ -40,4 +40,41 @@ public class AllUsersInteractorImpl extends BaseInteractorImpl implements AllUse
         }
 
     }
+
+    @Override
+    public void getLogedInData(final String accessToken) {
+        ChatRoomGrpc.ChatRoomBlockingStub chatRoomBlockingStub = ChatRoomGrpc.newBlockingStub(getChannel());
+        Chat.CommonRequest req = Chat.CommonRequest
+                .newBuilder()
+                .setAccessToken(accessToken)
+                .build();
+        try {
+            Chat.User res = chatRoomBlockingStub.getUserDetails(req);
+            view.onLoginUserDataSuccess(res);
+        }catch (Exception e){
+            view.onFailure(e.getMessage(),getAppContext().getString(R.string.error_title));
+        }
+    }
+
+    @Override
+    public void setupP2PChat(final Chat.User sender, final Chat.User reciever) {
+        ChatRoomGrpc.ChatRoomBlockingStub chatRoomBlockingStub = ChatRoomGrpc.newBlockingStub(getChannel());
+        Chat.P2PChatRequest req = Chat.P2PChatRequest
+                .newBuilder()
+                .setUserInfo(sender)
+                .setReciverInfo(reciever)
+                .build();
+
+        try {
+            Chat.CommonResponse res = chatRoomBlockingStub.startP2PChat(req);
+            if(res.getCode()==200){
+                view.onP2PChatConnectionStartSuccess();
+            }else{
+                view.onFailure(res.getMessage(),getAppContext().getString(R.string.error_title));
+            }
+        }catch (Exception e){
+            view.onFailure(e.getMessage(),getAppContext().getString(R.string.error_title));
+        }
+
+    }
 }
