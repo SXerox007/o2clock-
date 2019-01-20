@@ -66,11 +66,11 @@ public class AllUsersInteractorImpl extends BaseInteractorImpl implements AllUse
                 .build();
 
         try {
-            Chat.CommonResponse res = chatRoomBlockingStub.startP2PChat(req);
-            if(res.getCode()==200){
-                view.onP2PChatConnectionStartSuccess();
+            Chat.P2PChatResponse res = chatRoomBlockingStub.startP2PChat(req);
+            if(res.getCommmonResponse().getCode()==200){
+                view.onP2PChatConnectionStartSuccess(res.getChatId());
             }else{
-                view.onFailure(res.getMessage(),getAppContext().getString(R.string.error_title));
+                view.onFailure(res.getCommmonResponse().getMessage(),getAppContext().getString(R.string.error_title));
             }
         }catch (Exception e){
             view.onFailure(e.getMessage(),getAppContext().getString(R.string.error_title));

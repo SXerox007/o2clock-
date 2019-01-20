@@ -1,8 +1,10 @@
 package com.blackdreams.sumitthakur.o2clock.adapter;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
@@ -11,13 +13,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.blackdreams.sumitthakur.o2clock.R;
 import com.blackdreams.sumitthakur.o2clock.fragment.home.drawer.chat.allusers.AllUsersPresenter;
 import com.blackdreams.sumitthakur.o2clock.fragment.home.drawer.chat.allusers.AllUsersPresenterImpl;
 import com.blackdreams.sumitthakur.o2clock.fragment.home.drawer.chat.allusers.AllUsersView;
+import com.blackdreams.sumitthakur.o2clock.ui.home.chat.ChatActivity;
 import com.blackdreams.sumitthakur.o2clock.util.GlideUtils;
+import com.blackdreams.sumitthakur.o2clock.util.Util;
 import com.blackdreams.sumitthakur.o2clock.util.dialog.CustomAlertDialog;
 import com.bumptech.glide.Glide;
 
@@ -26,6 +29,11 @@ import java.util.List;
 
 import chatpb.Chat;
 
+import static com.blackdreams.sumitthakur.o2clock.Constants.AppConstants.IS_GROUP;
+import static com.blackdreams.sumitthakur.o2clock.Constants.AppConstants.RECIVER_ID;
+import static com.blackdreams.sumitthakur.o2clock.Constants.AppConstants.RECIVER_NAME;
+import static com.blackdreams.sumitthakur.o2clock.Constants.AppConstants.SENDER_ID;
+import static com.blackdreams.sumitthakur.o2clock.Constants.AppConstants.SENDER_NAME;
 import static com.blackdreams.sumitthakur.o2clock.MyApplication.getAppContext;
 
 /**
@@ -38,6 +46,7 @@ public class AllUsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private AllUsersPresenter allUsersPresenter;
     private Dialog mDialog;
     private int position;
+    private Chat.User sender;
     private List<Chat.User> data = new ArrayList<>();
 
     @NonNull
@@ -97,15 +106,21 @@ public class AllUsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public void onLoginUserDataSuccess(final Chat.User sender) {
+        this.sender = sender;
         allUsersPresenter.startChat(sender,data.get(position));
     }
 
     @Override
-    public void onP2PChatConnectionStartSuccess() {
+    public void onP2PChatConnectionStartSuccess(final String chatId) {
         //start the chat activity
-
+        Bundle bundle = new Bundle();
+        bundle.putString(SENDER_ID, sender.getUserId());
+        bundle.putString(RECIVER_ID, data.get(position).getUserId());
+        bundle.putString(SENDER_NAME, sender.getUserName());
+        bundle.putString(RECIVER_NAME, data.get(position).getUserName());
+        bundle.putBoolean(IS_GROUP,false);
+        Util.startActivity((Activity) mContext,ChatActivity.class,null);
     }
-
 
     /**
      * View holder class
@@ -114,7 +129,6 @@ public class AllUsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         private AppCompatImageView ivUser;
         private AppCompatTextView tvUserName;
-        private LinearLayout llChatItem;
 
         /**
          * Instantiates a new Item view holder.
@@ -128,8 +142,9 @@ public class AllUsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
              itemView.findViewById(R.id.llChatItem).setOnClickListener(new View.OnClickListener() {
                  @Override
                  public void onClick(View view) {
-                     allUsersPresenter.getLoginUserData();
                      position = getAdapterPosition();
+                     allUsersPresenter.getLoginUserData();
+
                  }
              });
 

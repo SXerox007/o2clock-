@@ -33,5 +33,5 @@ public interface AllUsersView extends BaseView {
     /**
      * p2p connection start success
      */
-    void onP2PChatConnectionStartSuccess();
+    void onP2PChatConnectionStartSuccess(final String chatId);
 }

@@ -89,7 +89,6 @@
     <string name="error_not_a_valid_image_file">File is not a valid image.</string>
 
 
-
     <string name="text_ok">OK</string>
     <string name="text_exit">Exit</string>
     <string name="text_retry">Retry</string>
@@ -122,7 +121,6 @@
     <string name="error_file_not_exist">File does not exist</string>
 
 
-
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="on_duty">On Duty</string>
@@ -135,11 +133,9 @@
     <string name="settings">Settings</string>
 
 
-
     <!-- TAB TExt -->
     <string name="tab_home">o2clock</string>
     <string name="tab_profile">Profile</string>
-
 
 
     <!-- Image Chooser -->

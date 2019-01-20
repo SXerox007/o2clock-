@@ -24,4 +24,13 @@ public interface AppConstants {
     String REGEX_NUMERIC_STRING = "(^.\\d*$)";
     String REGEX_MOBILE_NUMBER = "(^[0-9]{10}$)";
     int MIN_PASSWORD_LENGTH = 8;
+
+
+
+    //chat
+    String SENDER_ID = "SENDER_ID";
+    String RECIVER_ID = "RECIVER_ID";
+    String SENDER_NAME = "SENDER_NAME";
+    String RECIVER_NAME = "RECIVER_NAME";
+    String IS_GROUP = "IS_GROUP";
 }
