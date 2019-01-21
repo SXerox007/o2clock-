@@ -29,6 +29,7 @@ import java.util.List;
 
 import chatpb.Chat;
 
+import static com.blackdreams.sumitthakur.o2clock.Constants.AppConstants.CHAT_ID;
 import static com.blackdreams.sumitthakur.o2clock.Constants.AppConstants.IS_GROUP;
 import static com.blackdreams.sumitthakur.o2clock.Constants.AppConstants.RECIVER_ID;
 import static com.blackdreams.sumitthakur.o2clock.Constants.AppConstants.RECIVER_NAME;
@@ -119,6 +120,7 @@ public class AllUsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         bundle.putString(SENDER_NAME, sender.getUserName());
         bundle.putString(RECIVER_NAME, data.get(position).getUserName());
         bundle.putBoolean(IS_GROUP,false);
+        bundle.putString(CHAT_ID,chatId);
         Util.startActivity((Activity) mContext,ChatActivity.class,null);
     }
 

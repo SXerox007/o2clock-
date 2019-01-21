@@ -21,11 +21,6 @@ import com.blackdreams.sumitthakur.o2clock.base.BaseFragment;
 
 public class AllUsers extends BaseFragment implements View.OnClickListener {
 
-    private View view;
-    private AllUsersAdapter adapter;
-    private RecyclerView rvGroupAndUsers;
-    private LinearLayoutManager mLinearLayoutManager;
-
 
     /**
      * Creating Instance of Fragment
@@ -39,7 +34,7 @@ public class AllUsers extends BaseFragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.all_users, container, false);
+        View view = inflater.inflate(R.layout.all_users, container, false);
         init(view);
         return view;
     }
@@ -49,9 +44,9 @@ public class AllUsers extends BaseFragment implements View.OnClickListener {
      * @param view view
      */
     private void init(View view) {
-        adapter = new AllUsersAdapter();
-        mLinearLayoutManager = new LinearLayoutManager(getContext());
-        rvGroupAndUsers = view.findViewById(R.id.rvGroupAndUsers);
+        AllUsersAdapter adapter = new AllUsersAdapter();
+        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getContext());
+        RecyclerView rvGroupAndUsers = view.findViewById(R.id.rvGroupAndUsers);
         rvGroupAndUsers.setLayoutManager(mLinearLayoutManager);
         rvGroupAndUsers.setAdapter(adapter);
         adapter.init();
