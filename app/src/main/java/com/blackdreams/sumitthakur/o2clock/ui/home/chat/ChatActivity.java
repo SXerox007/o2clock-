@@ -1,5 +1,6 @@
 package com.blackdreams.sumitthakur.o2clock.ui.home.chat;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatEditText;
@@ -10,6 +11,7 @@ import android.view.View;
 import com.blackdreams.sumitthakur.o2clock.R;
 import com.blackdreams.sumitthakur.o2clock.adapter.ChatAdapter;
 import com.blackdreams.sumitthakur.o2clock.base.BaseActivity;
+import com.blackdreams.sumitthakur.o2clock.util.dialog.CustomAlertDialog;
 
 import chatpb.Chat;
 
@@ -20,12 +22,13 @@ import static com.blackdreams.sumitthakur.o2clock.Constants.AppConstants.RECIVER
 import static com.blackdreams.sumitthakur.o2clock.Constants.AppConstants.SENDER_ID;
 import static com.blackdreams.sumitthakur.o2clock.Constants.AppConstants.SENDER_NAME;
 
-public class ChatActivity extends BaseActivity implements View.OnClickListener  {
+public class ChatActivity extends BaseActivity implements View.OnClickListener,ChatView  {
 
     private AppCompatEditText etMsgInput;
     private AppCompatButton btnSend;
     private RecyclerView rvMessages;
     private ChatAdapter adapter;
+    private Dialog mDialog;
 
 
     @Override
@@ -97,4 +100,29 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener  
          rvMessages.scrollToPosition(adapter.getItemCount() - 1);
     }
 
+    @Override
+    public void onSuccess() {
+
+    }
+
+    @Override
+    public void onFailure(final String msg, final String title) {
+        mDialog = new CustomAlertDialog.Builder(this)
+                .setTitle(title)
+                .setMessage(msg)
+                .setCancelable(false)
+                .setNegativeButton(getString(R.string.text_ok),
+                        new CustomAlertDialog.CustomDialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick() {
+                                mDialog.dismiss();
+                            }
+                        })
+                .show();
+    }
+
+    @Override
+    public void onMessageRecived(final Chat.ChatMessage message) {
+        adapter.addMessage(message);
+    }
 }
