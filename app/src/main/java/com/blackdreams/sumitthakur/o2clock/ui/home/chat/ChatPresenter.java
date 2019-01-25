@@ -1,5 +1,7 @@
 package com.blackdreams.sumitthakur.o2clock.ui.home.chat;
 
+import android.widget.EditText;
+
 import com.blackdreams.sumitthakur.o2clock.base.BasePresenter;
 
 import chatpb.Chat;
@@ -16,4 +18,10 @@ public interface ChatPresenter extends BasePresenter {
      * @param request reuest
      */
     void msgSend(final Chat.ChatMessage request);
+
+    /**
+     *  msg empty validation
+     * @param msg message
+     */
+    boolean msgEmptyValidation(EditText msg);
 }

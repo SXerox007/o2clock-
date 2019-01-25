@@ -121,7 +121,7 @@ public class AllUsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         bundle.putString(RECIVER_NAME, data.get(position).getUserName());
         bundle.putBoolean(IS_GROUP,false);
         bundle.putString(CHAT_ID,chatId);
-        Util.startActivity((Activity) mContext,ChatActivity.class,null);
+        Util.startActivity((Activity) mContext,ChatActivity.class,bundle);
     }
 
     /**

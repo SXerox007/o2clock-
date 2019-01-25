@@ -50,7 +50,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int pos) {
         final ChatAdapter.ItemViewHolder itemViewHolder = (ChatAdapter.ItemViewHolder) viewHolder;
-        itemViewHolder.message.setText(messageList.get(pos).getMessage().toString());
+        itemViewHolder.message.setText(messageList.get(pos).getMessage());
     }
 
     @Override

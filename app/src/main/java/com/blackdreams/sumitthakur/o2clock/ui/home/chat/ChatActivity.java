@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatEditText;
+import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -29,19 +30,24 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener,C
     private RecyclerView rvMessages;
     private ChatAdapter adapter;
     private Dialog mDialog;
+    private ChatPresenter chatPresenter;
+    private Bundle bundle;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+        chatPresenter = new ChatPresenterImpl(this);
         init();
     }
 
     private void init() {
+        bundle = getIntent().getExtras();
         rvMessages = findViewById(R.id.rvMessages);
         etMsgInput = findViewById(R.id.etMsgInput);
         btnSend = findViewById(R.id.btnSend);
+        ((AppCompatTextView)findViewById(R.id.toolbar_title)).setText(bundle.getString(RECIVER_NAME, "Unknown"));
         btnSend.setOnClickListener(this);
         recyclerViewInit();
     }
@@ -51,22 +57,27 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener,C
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnSend:
-                Bundle bundle = getIntent().getExtras();
                 Chat.ChatMessage message;
                 if(bundle.getBoolean(IS_GROUP,false)){
                     //if group message
                     message = Chat.ChatMessage.newBuilder().build();
-                }else{
-                     message = Chat.ChatMessage.newBuilder()
-                            .setSenderid(bundle.getString(SENDER_ID,""))
-                            .setMessage(etMsgInput.getText().toString())
-                            .setSenderName(bundle.getString(SENDER_NAME,"Unknown"))
-                            .setIsGroupMessage(bundle.getBoolean(IS_GROUP,false))
-                             .setSingleMessage(Chat.SingleMessage.newBuilder()
-                                     .setChatId(bundle.getString(CHAT_ID,""))
-                                     .setReciverId(bundle.getString(RECIVER_ID,"")).build())
-                             .setChatId(bundle.getString(CHAT_ID,""))
-                            .build();
+                }else {
+                    if (!chatPresenter.msgEmptyValidation(etMsgInput)) {
+                        message = Chat.ChatMessage.newBuilder()
+                                .setSenderid(bundle.getString(SENDER_ID, "Unknown"))
+                                .setMessage(etMsgInput.getText().toString())
+                                .setSenderName(bundle.getString(SENDER_NAME, "Unknown"))
+                                .setIsGroupMessage(bundle.getBoolean(IS_GROUP, false))
+                                .setSingleMessage(Chat.SingleMessage.newBuilder()
+                                        .setReciverName(bundle.getString(RECIVER_NAME, "Unknown"))
+                                        .setReciverId(bundle.getString(RECIVER_ID, "Unknown")
+                                        ).build())
+                                .setChatId(bundle.getString(CHAT_ID, "Unknown"))
+                                .build();
+                        chatPresenter.msgSend(message);
+                    }else{
+                        return;
+                    }
                 }
                 adapter.addMessage(message);
                 etMsgInput.setText("");
@@ -80,7 +91,6 @@ public class ChatActivity extends BaseActivity implements View.OnClickListener,C
      *  initilize
      */
     private void recyclerViewInit() {
-        Bundle bundle = getIntent().getExtras();
         adapter = new ChatAdapter();
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this);
         rvMessages = findViewById(R.id.rvMessages);
