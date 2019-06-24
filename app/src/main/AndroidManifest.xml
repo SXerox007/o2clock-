@@ -29,6 +29,9 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
+            <meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="@string/google_maps_key"/>
         </provider>
 
         <meta-data
@@ -50,7 +53,7 @@
             android:label="@string/title_activity_login" />
         <activity android:name=".ui.onboarding.tutorial.TutorialActivity" />
         <activity android:name=".ui.home.HomeActivity" />
-        <activity android:name=".ui.home.chat.ChatActivity"></activity>
+        <activity android:name=".ui.home.chat.ChatActivity"/>
     </application>
 
 </manifest>

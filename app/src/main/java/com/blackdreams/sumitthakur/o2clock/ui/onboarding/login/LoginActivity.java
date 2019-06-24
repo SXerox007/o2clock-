@@ -1,6 +1,7 @@
 package com.blackdreams.sumitthakur.o2clock.ui.onboarding.login;
 
 import android.accounts.Account;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
@@ -27,6 +28,7 @@ import com.blackdreams.sumitthakur.o2clock.fragment.login.LoginFragment;
 import com.blackdreams.sumitthakur.o2clock.fragment.register.RegisterFragment;
 import com.blackdreams.sumitthakur.o2clock.network.CommonParams;
 import com.blackdreams.sumitthakur.o2clock.util.Util;
+import com.blackdreams.sumitthakur.o2clock.util.dialog.CustomAlertDialog;
 import com.blackdreams.sumitthakur.o2clock.util.facebookutil.FacebookManager;
 import com.blackdreams.sumitthakur.o2clock.util.facebookutil.FacebookResponseHandler;
 import com.blackdreams.sumitthakur.o2clock.util.facebookutil.SocialUserDetails;
@@ -56,8 +58,8 @@ import java.util.ArrayList;
 import static com.blackdreams.sumitthakur.o2clock.Constants.ApiConstants.KEY_REQUEST_TOKEN_GOOGLE;
 
 
-public class LoginActivity extends BaseActivity implements View.OnClickListener, LoginView,CompoundButton.OnCheckedChangeListener,
-        GoogleApiClient.OnConnectionFailedListener  {
+public class LoginActivity extends BaseActivity implements View.OnClickListener, LoginView, CompoundButton.OnCheckedChangeListener,
+        GoogleApiClient.OnConnectionFailedListener {
 
 
     private static final int RC_SIGN_IN = 1001;
@@ -87,9 +89,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     private ArrayList<Drawable> list = new ArrayList<>();
     private LatLng mLocation;
     private int loginby;
-//    private AppCompatEditText etEmailPhone, etPassword;
+    //    private AppCompatEditText etEmailPhone, etPassword;
     private LoginPresenter loginPresenter;
     private AppCompatTextView toolbarTitle;
+    private Dialog mDialog;
 
 
     @Override
@@ -100,41 +103,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         init();
     }
 
-
-//    private void init() {
-//        //findViewById(R.id.ivBack).setVisibility(View.GONE);
-//        etEmailPhone = findViewById(R.id.etEmailPhone);
-//        etPassword = findViewById(R.id.etPassword);
-//        Util.setOnClickListener(this, findViewById(R.id.btnSignIn),
-//                findViewById(R.id.btnLoginFb), findViewById(R.id.tvForgotPassword), findViewById(R.id.tvCreate));
-//        fetchCredFromSecurePref();
-//    }
-//
-//
-//    private void saveCredSecurePreference() {
-//        SecurePreferences preferences = new SecurePreferences(this, USER_INFO,
-//                YOUR_SECURITY_KEY, true);
-//        preferences.put(PREF_USERNAME, etEmailPhone.getText().toString());
-//        preferences.put(PREF_PASSWORD, etPassword.getText().toString());
-//    }
-//
-//    private void fetchCredFromSecurePref() {
-//        SecurePreferences preferences = new SecurePreferences(this, USER_INFO,
-//                YOUR_SECURITY_KEY, true);
-//        etEmailPhone.setText(preferences.getString(PREF_USERNAME));
-//        etPassword.setText(preferences.getString(PREF_PASSWORD));
-//    }
-
-//    @Override
-//    public void onClick(View view) {
-//        switch (view.getId()) {
-//            //case R.id.btnSignIn:
-//              //  loginPresenter.onLoginClick(etEmailPhone.getText().toString(), etPassword.getText().toString());
-//             //   break;
-//            default:
-//                showToast(getString(R.string.label_dummy_label_not_in_used));
-//        }
-//    }
 
     @Override
     public void errMessageEmailPhoneIncorrect() {
@@ -148,8 +116,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
 
     @Override
     public void onLoginSucess() {
-       // saveCredSecurePreference();
-      //  Util.startFreshActivity(this, HomeContollerActivity.class, null);
+        // saveCredSecurePreference();
+        //  Util.startFreshActivity(this, HomeContollerActivity.class, null);
     }
 
     @Override
@@ -161,8 +129,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     public void errorEmptyPassword() {
         showToast(getString(R.string.password_required));
     }
-
-
 
 
     /**
@@ -184,6 +150,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     private void init() {
         //ivCenterLogo =  findViewById(R.id.iv_logo_welcome);
         //ivCenterLogo.setImageResource(R.mipmap.icon_clock);
+        findViewById(R.id.tvHidden).setOnClickListener(this);
         toolbarTitle = findViewById(R.id.toolbar_title);
         toolbarTitle.setText(getString(R.string.app_name));
         callbackManager = CallbackManager.Factory.create();
@@ -193,9 +160,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         googleLoginSetUp();
         btnFacebookLogin.setOnClickListener(this);
         btnGoogleSignIn.setOnClickListener(this);
-        rbLogin =  findViewById(R.id.rb_login);
+        rbLogin = findViewById(R.id.rb_login);
         rbSignUp = findViewById(R.id.rb_create_account);
-        fl1 =  findViewById(R.id.fl_create_account);
+        fl1 = findViewById(R.id.fl_create_account);
         fl2 = findViewById(R.id.fl_login);
         rbLogin.setOnCheckedChangeListener(this);
         rbSignUp.setOnCheckedChangeListener(this);
@@ -320,11 +287,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
             case R.id.btnSignInwithGoogle:
                 googleLogin();
                 break;
+            case R.id.tvHidden:
+
+                break;
             default:
                 break;
         }
     }
-
 
     /**
      * LoginWith Google+
@@ -371,8 +340,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                 }
 
                 @Override
-                public void onError(final FacebookException e)
-                {
+                public void onError(final FacebookException e) {
                     Log.e("Error", "Exception");
                 }
             });
@@ -410,7 +378,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                     .add(ApiConstants.SOCIAL_ID, googleSignInAccount.getId())
                     .add(ApiConstants.ACCESS_TOKEN, token)
                     .build();
-           //Google login data send to BE and Get the access token with this
+            //Google login data send to BE and Get the access token with this
             // TODO
 
         }
