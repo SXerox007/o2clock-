@@ -4,14 +4,11 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatAutoCompleteTextView;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatImageView;
-import android.text.method.HideReturnsTransformationMethod;
-import android.text.method.PasswordTransformationMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,9 +20,8 @@ import android.widget.TextView;
 import com.blackdreams.sumitthakur.o2clock.R;
 import com.blackdreams.sumitthakur.o2clock.base.BaseFragment;
 import com.blackdreams.sumitthakur.o2clock.ui.home.HomeActivity;
-import com.blackdreams.sumitthakur.o2clock.ui.onboarding.login.LoginPresenter;
+import com.blackdreams.sumitthakur.o2clock.ui.onboarding.forgotpassword.ForgotPasswordActivity;
 import com.blackdreams.sumitthakur.o2clock.util.Util;
-import com.blackdreams.sumitthakur.o2clock.util.ValidateEditText;
 import com.blackdreams.sumitthakur.o2clock.util.dialog.CustomAlertDialog;
 
 import io.paperdb.Paper;
@@ -135,7 +131,7 @@ public class LoginFragment extends BaseFragment implements LoginFragmentView {
      */
    // TODO
     private void forgotPassword() {
-       // startActivity(new Intent(getActivity(), ForgotPasswordActivity.class));
+        Util.startActivity((Activity) getContext(),ForgotPasswordActivity.class,null);
     }
 
 

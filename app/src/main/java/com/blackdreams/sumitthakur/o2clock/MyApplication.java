@@ -44,7 +44,7 @@ public class MyApplication extends Application {
         super.onCreate();
         Paper.init(this);
         mWeakReference = new WeakReference<Context>(this);
-        channel = OkHttpChannelBuilder.forAddress("192.168.2.109", 50051)
+        channel = OkHttpChannelBuilder.forAddress("192.168.2.110", 50051)
                 .usePlaintext()
                 .build();
     }
