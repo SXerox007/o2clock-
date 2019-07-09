@@ -161,7 +161,7 @@ public class LoginFragment extends BaseFragment implements LoginFragmentView {
 
 
     @Override
-    public void showErrorDialog(String msg, String title) {
+    public void showErrorDialog(final String msg, final String title) {
         mDialog = new CustomAlertDialog.Builder(getContext())
                 .setTitle(title)
                 .setMessage(msg)

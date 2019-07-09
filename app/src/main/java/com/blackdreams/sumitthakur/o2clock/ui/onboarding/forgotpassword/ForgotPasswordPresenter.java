@@ -1,5 +1,7 @@
 package com.blackdreams.sumitthakur.o2clock.ui.onboarding.forgotpassword;
 
+import android.support.v7.widget.AppCompatAutoCompleteTextView;
+
 import com.blackdreams.sumitthakur.o2clock.base.BasePresenter;
 
 /**
@@ -8,4 +10,10 @@ import com.blackdreams.sumitthakur.o2clock.base.BasePresenter;
  */
 
 public interface ForgotPasswordPresenter extends BasePresenter {
+
+    /**
+     *
+     * @param emailOrPhone email or phone
+     */
+    void onContinue(final AppCompatAutoCompleteTextView emailOrPhone);
 }

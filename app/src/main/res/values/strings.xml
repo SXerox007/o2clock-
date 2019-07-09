@@ -92,6 +92,8 @@
 
 
     <string name="text_ok">OK</string>
+    <string name="txt_message_sent_email_or_phone">Send Email/SMS on your gmail/sms-box. Please check and reset your password.</string>
+    <string name="txt_success">Success</string>
     <string name="text_exit">Exit</string>
     <string name="text_retry">Retry</string>
     <string name="text_terms_and_condition1">TERMS &amp; CONDITIONS</string>

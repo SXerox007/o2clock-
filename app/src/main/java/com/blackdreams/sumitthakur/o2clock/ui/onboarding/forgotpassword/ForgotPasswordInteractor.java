@@ -8,4 +8,11 @@ import com.blackdreams.sumitthakur.o2clock.base.BaseInteractor;
  */
 
 public interface ForgotPasswordInteractor extends BaseInteractor {
+
+    /**
+     *
+     * @param emailOrPhone email or phone
+     * @param isEmail bool
+     */
+    void onContinueBtnPressed(final String emailOrPhone,final boolean isEmail);
 }

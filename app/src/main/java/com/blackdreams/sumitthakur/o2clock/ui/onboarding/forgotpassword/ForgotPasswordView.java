@@ -8,4 +8,15 @@ import com.blackdreams.sumitthakur.o2clock.base.BaseView;
  */
 
 public interface ForgotPasswordView extends BaseView {
+
+    /**
+     * on success
+     */
+    void onSuccess();
+
+    /**
+     *
+     * @param message message
+     */
+    void onFailure(String title,String message);
 }
