@@ -30,6 +30,7 @@ import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -153,7 +154,7 @@ public class RegisterFragment  extends BaseFragment implements RegisterFragmentV
         if (resultCode == RESULT_OK) {
             if (requestCode == PLACE_PICKER_REQUEST) {
                 Place place = PlacePicker.getPlace(getContext(), data);
-                 address = (String) place.getAddress();
+                address = (String) place.getAddress();
                 mLocation = place.getLatLng();
                 isLocationSet = true;
                 ivPlacePicker.setImageResource(R.drawable.ic_done_circle);

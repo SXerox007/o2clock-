@@ -16,12 +16,12 @@ public class SplashInteractorImpl implements SplashInteractor{
 
     private SplashView splashView;
 
-    public SplashInteractorImpl(SplashView splashView){
+    public SplashInteractorImpl(final SplashView splashView){
         this.splashView = splashView;
     }
 
     @Override
-    public void checkAccessToken(String accessToken) {
+    public void checkAccessToken(final String accessToken) {
         AccessTokenServiceGrpc.AccessTokenServiceBlockingStub accessTokenService = AccessTokenServiceGrpc.newBlockingStub(getChannel());
         Accesstoken.AccessTokenRequest req = Accesstoken.AccessTokenRequest.newBuilder()
                 .setAccessToken(accessToken).build();

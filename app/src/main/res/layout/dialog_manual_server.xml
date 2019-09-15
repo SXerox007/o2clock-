@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:animateLayoutChanges="true"
+    android:background="@drawable/round_corner_manual_server"
+    android:elevation="5dp"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvManualUrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="16dp"
+        android:paddingStart="16dp"
+        android:paddingRight="16dp"
+        android:paddingEnd="16dp"
+        android:textColor="@color/sky_blue"
+        android:textSize="@dimen/font_normal" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="16dp"
+        android:paddingStart="16dp"
+        android:paddingRight="16dp"
+        android:paddingEnd="16dp"
+        android:text="Scheme"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_large" />
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/etScheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingStart="16dp"
+        android:paddingRight="16dp"
+        android:paddingEnd="16dp"
+        android:maxLines="1"
+        android:text="https"
+        android:textColor="@color/black"
+        android:inputType="textUri"
+        android:imeOptions="actionNext"
+        android:textSize="@dimen/font_large" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingRight="16dp"
+        android:text="Host"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_large" />
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/etHost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingStart="16dp"
+        android:paddingRight="16dp"
+        android:paddingEnd="16dp"
+        android:maxLines="1"
+        android:inputType="textUri"
+        android:textColor="@color/black"
+        android:imeOptions="actionNext"
+        android:hint="URL"
+        android:textSize="@dimen/font_large" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="16dp"
+        android:paddingStart="16dp"
+        android:paddingRight="16dp"
+        android:paddingEnd="16dp"
+        android:text="Port"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_large" />
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/etPort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:paddingLeft="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingRight="16dp"
+        android:textColor="@color/black"
+        android:maxLines="1"
+        android:imeOptions="actionDone"
+        android:hint="PORT"
+        android:textSize="@dimen/font_large" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvUrlError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:gravity="center"
+        android:text="Not a valid URL"
+        android:textColor="@color/red" />
+
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btnDone"
+        style="@style/primary_button"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_normal"
+        android:background="@color/sky_blue"
+        android:text="@string/btn_done"
+        android:textColor="@color/white"
+        />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btnCancel"
+        style="@style/primary_button"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_normal"
+        android:background="@color/red"
+        android:text="@string/btn_cancel"
+        android:textColor="@color/white"
+        />
+
+</LinearLayout>

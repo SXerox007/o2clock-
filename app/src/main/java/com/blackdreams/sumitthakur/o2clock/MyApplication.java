@@ -7,6 +7,8 @@ package com.blackdreams.sumitthakur.o2clock;
 import android.app.Application;
 import android.content.Context;
 
+import com.blackdreams.sumitthakur.o2clock.util.Config;
+
 import java.lang.ref.WeakReference;
 
 import io.grpc.ManagedChannel;
@@ -44,7 +46,11 @@ public class MyApplication extends Application {
         super.onCreate();
         Paper.init(this);
         mWeakReference = new WeakReference<Context>(this);
-        channel = OkHttpChannelBuilder.forAddress("192.168.2.110", 50051)
+        setChannel();
+    }
+
+    public static void setChannel(){
+        channel = OkHttpChannelBuilder.forAddress(Config.getCurrentAppHost(getAppContext()), Config.getCurrentAppPort(getAppContext()))
                 .usePlaintext()
                 .build();
     }

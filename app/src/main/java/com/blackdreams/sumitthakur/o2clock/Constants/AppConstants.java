@@ -34,4 +34,8 @@ public interface AppConstants {
     String RECIVER_NAME = "RECIVER_NAME";
     String IS_GROUP = "IS_GROUP";
     String CHAT_ID = "CHAT_ID";
+
+
+    String EMPTY_STRING = "";
+
 }

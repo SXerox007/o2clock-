@@ -17,7 +17,7 @@ import com.google.android.gms.common.GoogleApiAvailability;
 
 public class SplashActivity extends BaseActivity implements SplashView {
 
-    private static final int DELAY = 1500;
+    private static final int DELAY = 500;
     private Dialog mDialog;
     private SplashPresenter mSplashPresenter;
 
